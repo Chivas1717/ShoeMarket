@@ -1,0 +1,15 @@
+@import './variables';
+@import './libs/normalize';
+@import './components/all';
+
+body {
+  background-color: $white;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+.content {
+
+}

@@ -1,0 +1,32 @@
+@import '../variables';
+
+.header {
+  padding: 30px 20px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 580px) {
+      flex-direction: column;
+      .header__logo {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__logo {
+    display: flex;
+
+    h1 {
+      color: #181818;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    p {
+      color: #7b7b7b;
+    }
+  }
+}
