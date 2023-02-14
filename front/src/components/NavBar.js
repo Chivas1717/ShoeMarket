@@ -21,14 +21,14 @@ const NavBar = () => {
                 </Link>
                 <div className='header__sections'>
                     <div className='section'>Магазин</div>
-                    <div className='section'>adamdlkawd</div>
-                    <div className='section'>adamdlkawd</div>
+                    <div className='section'>Про нас</div>
+                    <div className='section'>контакти</div>
                 </div>
                 <Search/>
                 <div className='header__icons'>
-                    <img className='admin' src={AdminIcon}/>
+                    <Link to='/admin/'><img className='admin' src={AdminIcon}/></Link>
                     <img className='profile' src={ProfileIcon}/>
-                    <img className='cart' src={CartIcon}/>
+                    <Link to='/cart/'><img className='cart' src={CartIcon}/></Link>
                 </div>
             </div>
         </div>
