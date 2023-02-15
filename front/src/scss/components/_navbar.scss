@@ -2,7 +2,10 @@
 
 .header {
   position: sticky;
+  top: 0;
+  background: $white;
   padding: 30px 20px;
+  z-index: 2;
 
   .container {
     display: flex;

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import {values} from "mobx";
 import {BrowserRouter} from "react-router-dom";
+import ItemStore from "./store/ItemStore";
 
 export const Context = React.createContext(null)
 
@@ -12,7 +13,7 @@ root.render(
     <BrowserRouter>
       <Context.Provider value={{
         // user: new UserStore(),
-        // item: new ItemStore(),
+        item: new ItemStore(),
       }}>
         <App />
       </Context.Provider>

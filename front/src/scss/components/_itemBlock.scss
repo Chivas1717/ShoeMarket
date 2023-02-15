@@ -1,0 +1,71 @@
+@import '../variables';
+
+.item-block {
+  position: relative;
+  width: 320px;
+  text-align: center;
+  margin-bottom: 65px;
+
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__image {
+    width: 260px;
+
+    &__wrapper {
+      width: 320px;
+      background: $grey-bg;
+      border-radius: 15px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &__wrapper + .add {
+      display: none;
+    }
+
+    &__wrapper:hover + .add {
+      display: block;
+    }
+
+
+  }
+
+
+
+  &__title {
+    width: 320px;
+    margin: 10px 0 3px;
+    font-size: 18px;
+  }
+
+  &__price {
+    width: 320px;
+  }
+}
+
+
+
+.add {
+  display: none;
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  background-color: $black;
+  color: $white;
+  padding: 13px 30px;
+  border-radius: 30px;
+  margin-right: 10px;
+  font-weight: bold;
+  border-width: 0;
+  cursor: pointer;
+
+  &:hover {
+    display: block;
+  }
+}

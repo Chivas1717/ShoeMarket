@@ -1,0 +1,68 @@
+@import '../../scss/variables';
+
+.block {
+  position: relative;
+  border-radius: 25px;
+  background: $grey-bg;
+
+  .title {
+    position: absolute;
+    left: 47%;
+    bottom: 45px;
+    font-size: 20px;
+  }
+
+  .add {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    background-color: $black;
+    color: $white;
+    padding: 13px 30px;
+    border-radius: 30px;
+    margin-right: 10px;
+    font-weight: bold;
+    border-width: 0;
+    cursor: pointer;
+
+    &:hover {
+      display: block;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  img + .add {
+    display: none;
+  }
+
+  img:hover + .add {
+    display: block;
+  }
+
+  span {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    background-color: $black;
+    color: $white;
+    padding: 13px 30px;
+    border-radius: 30px;
+    margin-right: 10px;
+    font-weight: bold;
+    z-index: 1;
+
+
+  }
+
+
+
+
+}
