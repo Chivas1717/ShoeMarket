@@ -1,12 +1,25 @@
-import {Link} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import LogoShoe from '../assets/shoe-icon.svg'
 import AdminIcon from '../assets/admin-icon.png'
 import CartIcon from '../assets/cart-icon-cropped.svg'
 import ProfileIcon from '../assets/profile-icon.png'
 
 import Search from "./Search/Search";
+import {useRef} from "react";
 
-const NavBar = () => {
+const NavBar = ({ aboutRef }) => {
+    const navigate = useNavigate()
+    const location = useLocation()
+
+
+    const onClickAboutNavigate = () => {
+        if (location.pathname !== '/home/') {
+            navigate('/home/')
+        }
+
+        aboutRef.current.scrollIntoView({behavior:'smooth'})
+    }
+
     return (
         <div className='header'>
             <div className='container'>
@@ -21,7 +34,7 @@ const NavBar = () => {
                 </Link>
                 <div className='header__sections'>
                     <div className='section'>Магазин</div>
-                    <div className='section'>Про нас</div>
+                    <div onClick={() => onClickAboutNavigate()} className='section'>Про нас</div>
                     <div className='section'>контакти</div>
                 </div>
                 <Search/>
