@@ -30,6 +30,10 @@ body {
     }
   }
 
+  &__banner {
+    padding: 0 0 0;
+  }
+
   &__title {
     margin: 35px 0;
   }
@@ -130,5 +134,25 @@ body {
     .content__title {
       margin: 0;
     }
+  }
+
+  &--info {
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+
+    background-color: $grey-bg;
+    padding: 50px 0;
+
+    h1 {
+      font-size: 35px;
+    }
+
+    div {
+      text-align: left;
+      margin: 15px auto;
+      font-size: 25px;
+      width: 60%;
+    };
   }
 }

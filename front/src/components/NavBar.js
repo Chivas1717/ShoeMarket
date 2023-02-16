@@ -5,7 +5,6 @@ import CartIcon from '../assets/cart-icon-cropped.svg'
 import ProfileIcon from '../assets/profile-icon.png'
 
 import Search from "./Search/Search";
-import {useRef} from "react";
 
 const NavBar = ({ aboutRef }) => {
     const navigate = useNavigate()
@@ -16,7 +15,6 @@ const NavBar = ({ aboutRef }) => {
         if (location.pathname !== '/home/') {
             navigate('/home/')
         }
-
         aboutRef.current.scrollIntoView({behavior:'smooth'})
     }
 
@@ -33,15 +31,15 @@ const NavBar = ({ aboutRef }) => {
                     </div>
                 </Link>
                 <div className='header__sections'>
-                    <div className='section'>Магазин</div>
+                    <Link to='/home'><div className='section'>Магазин</div></Link>
                     <div onClick={() => onClickAboutNavigate()} className='section'>Про нас</div>
-                    <div className='section'>контакти</div>
+                    <div className='section'>Контакти</div>
                 </div>
                 <Search/>
                 <div className='header__icons'>
-                    <Link to='/admin/'><img className='admin' src={AdminIcon}/></Link>
+                    <Link to='/admin'><img className='admin' src={AdminIcon}/></Link>
                     <img className='profile' src={ProfileIcon}/>
-                    <Link to='/cart/'><img className='cart' src={CartIcon}/></Link>
+                    <Link to='/cart'><img className='cart' src={CartIcon}/></Link>
                 </div>
             </div>
         </div>
