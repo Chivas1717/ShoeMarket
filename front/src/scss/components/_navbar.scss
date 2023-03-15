@@ -82,3 +82,14 @@
     }
   }
 }
+
+.hot-line {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+
+  span {
+    color: #F3953E;
+    font-weight: bold;
+  }
+}

@@ -5,6 +5,7 @@
   width: 320px;
   text-align: center;
   margin-bottom: 65px;
+  cursor: pointer;
 
   &-wrapper {
     display: flex;
@@ -19,8 +20,10 @@
       background: $grey-bg;
       border-radius: 15px;
       cursor: pointer;
+      transition: opacity 1s;
 
       &:hover {
+        transition: opacity 1s;
         opacity: 0.8;
       }
     }
@@ -56,8 +59,8 @@
   position: absolute;
   top: 35%;
   left: 25%;
-  background-color: $black;
-  color: $white;
+  background-color: $white;
+  color: $black;
   padding: 13px 30px;
   border-radius: 30px;
   margin-right: 10px;
@@ -67,5 +70,7 @@
 
   &:hover {
     display: block;
+    //color: darken($white, 30);
+    cursor: url("../../assets/cart-icon-cropped.svg"), auto;
   }
 }

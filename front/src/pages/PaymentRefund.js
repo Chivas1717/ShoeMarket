@@ -5,10 +5,17 @@ const PaymentRefund = ({ paymentRef }) => {
   return (
     <div className='container--main--info'>
       <h1>Оплата та повернення</h1>
-      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan tortor posuere ac ut consequat semper viverra nam libero. Ipsum suspendisse ultrices gravida dictum. Turpis egestas integer eget aliquet nibh praesent. Tellus integer feugiat scelerisque varius. Varius duis at consectetur lorem donec massa. Tellus orci ac auctor augue mauris augue. Potenti nullam ac tortor vitae purus faucibus ornare. Lectus quam id leo in vitae. Scelerisque felis imperdiet proin fermentum leo vel orci.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan tortor posuere ac ut consequat semper viverra nam libero. Ipsum suspendisse ultrices gravida dictum. Turpis egestas integer eget aliquet nibh praesent. Tellus integer feugiat scelerisque varius. Varius duis at consectetur lorem donec massa. Tellus orci ac auctor augue mauris augue. Potenti nullam ac tortor vitae purus faucibus ornare. Lectus quam id leo in vitae. Scelerisque felis imperdiet proin fermentum leo vel orci.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan tortor posuere ac ut consequat semper viverra nam libero. Ipsum suspendisse ultrices gravida dictum. Turpis egestas integer eget aliquet nibh praesent. Tellus integer feugiat scelerisque varius. Varius duis at consectetur lorem donec massa. Tellus orci ac auctor augue mauris augue. Potenti nullam ac tortor vitae purus faucibus ornare. Lectus quam id leo in vitae. Scelerisque felis imperdiet proin fermentum leo vel orci.
-
+      <div>Ми підбираємо наше взуття, щоб допомогти вам працювати на найвищому рівні, тож якщо вони вам не підходять, ми допоможемо вам. Ми надаємо вам 30 днів, щоб перевірити ваші покупки в дії, впевнено знаючи, що ви можете повернути речі (застосовуються деякі винятки) з будь-якої причини протягом цих 30 днів. Це включає в себе кросівки усіх брендів. Навіть через 30 днів ви все одно можете повернути речі, які не були ношені або прані.
+        <br /><br />
+        І пам’ятайте, що вартість повернення не стягується.
+        <br /><br />
+        Для того щоб почати процес повернення зв’яжіться з нашим офісом по номеру +380672951207 зателефонувавши або написавши у телеграм.
+        <br /><br />
+        Також можна почати процес повернення написавши на email: markgud1717@gmail.com.
+        <br /><br />
+        Це займає не більше 3-х днів, бо наша команда працює швидко а заявки на повернення це скоріш виключення з правил ніж постійна практика.
+        <br /><br />
+        Тож продовжуйте, купуйте з упевненістю та насолоджуйтеся 30-денною пробною версією.
       </div>
       <h1 ref={paymentRef}>Методи оплати</h1>
       <div>

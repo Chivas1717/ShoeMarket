@@ -19,7 +19,7 @@ const CartItem = () => {
   return (
     <div className="cart__item">
       <div className="cart__item-img">
-        <img className="pizza-block__image" src={imageTest} alt="Pizza" />
+        <img src={imageTest} alt="Item" />
       </div>
       <div className="cart__item-info">
         <h3>Yeezy Boost</h3>

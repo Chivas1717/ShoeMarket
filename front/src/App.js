@@ -6,10 +6,11 @@ import {useEffect, useRef} from "react";
 import PaymentRefund from "./pages/PaymentRefund";
 import Footer from "./components/Footer/Footer";
 import Cart from "./pages/Cart";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
   const navigate = useNavigate()
-  useEffect(() => {navigate('/home/')}, [])
+  useEffect(() => {navigate('/home')}, [])
 
   const location = useLocation()
 
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/home' element={<Home aboutRef={aboutRef}/>}/>
           <Route path='/payment-refund' element={<PaymentRefund paymentRef={paymentRef} />}/>
+          <Route path='/privacy-policy' element={<PrivacyPolicy />}/>
           <Route path='/cart' element={<Cart />}/>
           <Route path='*' element={<Home />}/>
         </Routes>

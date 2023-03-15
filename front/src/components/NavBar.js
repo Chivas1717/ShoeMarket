@@ -12,16 +12,18 @@ const NavBar = ({ aboutRef }) => {
 
 
     const onClickAboutNavigate = () => {
-        if (location.pathname !== '/home/') {
-            navigate('/home/')
+        if (location.pathname !== '/home') {
+            navigate('/home')
         }
         aboutRef.current.scrollIntoView({behavior:'smooth'})
     }
 
     return (
         <div className='header'>
+
             <div className='container'>
-                <Link to='/home/'>
+                <div className='hot-line'><span>Горяча лінія:</span> Пн-Пт: 9:00-19:00     (+38) 123-456-7890</div>
+                <Link to='/home'>
                     <div className='header__logo'>
                         <img width='49' src={LogoShoe} alt="LogoShoe"/>
                         <div>
@@ -35,7 +37,7 @@ const NavBar = ({ aboutRef }) => {
                     <div onClick={() => onClickAboutNavigate()} className='section'>Про нас</div>
                     <div className='section'>Контакти</div>
                 </div>
-                <Search/>
+                {location.pathname === '/home' && <Search/>}
                 <div className='header__icons'>
                     <Link to='/admin'><img className='admin' src={AdminIcon}/></Link>
                     <img className='profile' src={ProfileIcon}/>

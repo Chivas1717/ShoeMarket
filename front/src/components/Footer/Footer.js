@@ -1,5 +1,7 @@
 import styles from './Footer.module.scss'
 import {Link, useLocation, useNavigate} from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 const Footer = ({ paymentRef }) => {
 
@@ -16,7 +18,7 @@ const Footer = ({ paymentRef }) => {
     <div className={styles.root}>
       <div className={styles.column}>
         <Link to='/payment-refund'><div className={styles.row}>Оплата і повернення</div></Link>
-        <div className={styles.row}>Політика конфіденціальності</div>
+        <Link to='/privacy-policy'><div className={styles.row}>Політика конфіденціальності</div></Link>
         <div className={styles.row} onClick={() => onClickPaymentMethods()}>Методи оплати</div>
       </div>
       <div className={styles.column}>
@@ -24,7 +26,11 @@ const Footer = ({ paymentRef }) => {
         <div className={styles.row}>(+38) 123-456-7890</div>
         <div className={styles.row}>email: test@company.com</div>
       </div>
-      <div className={styles.column}>3</div>
+      <div className={styles.column}>
+        <div className={styles.row}>Facebook <FontAwesomeIcon icon={faFacebook} color='#00000'/></div>
+        <div className={styles.row}>Instagram <FontAwesomeIcon icon={faInstagram} color='#00000'/></div>
+        <div className={styles.row}>LinkedIn <FontAwesomeIcon icon={faLinkedin} color='#00000'/></div>
+      </div>
     </div>
   )
 }
