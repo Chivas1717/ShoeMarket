@@ -3,7 +3,41 @@ import {makeAutoObservable} from "mobx";
 export default class ItemStore {
   constructor() {
     this._brands = [{name: 'Nike'}, {name: 'Adidas'}, {name: 'Puma'}, {name: 'Vans'}]
-    this._items = [{count: 5, rows: [{id: 1, name: 'Yeezy boost', price: 15000, rating: 1, brandId: 2}]}]
+    this._items = [
+      {
+        "id": 1,
+        "name": "Jordan 360",
+        "price": 11999,
+        "rating": 0,
+        "img": "111a62da-e1b5-495c-98b9-cc39822fc724.jpg",
+        "createdAt": "2023-01-24T22:28:57.892Z",
+        "updatedAt": "2023-01-24T22:28:57.892Z",
+        "typeId": 1,
+        "brandId": 1
+      },
+      {
+        "id": 2,
+        "name": "Airmax",
+        "price": 12999,
+        "rating": 0,
+        "img": "20feba57-d626-447e-b66f-af3ec7164544.jpg",
+        "createdAt": "2023-01-25T19:56:58.370Z",
+        "updatedAt": "2023-01-25T19:56:58.370Z",
+        "typeId": 3,
+        "brandId": 1
+      },
+      {
+        "id": 3,
+        "name": "Vans 3000",
+        "price": 29999,
+        "rating": 0,
+        "img": "d91b3c44-dcfa-433d-96aa-1e0689b00bb5.jpg",
+        "createdAt": "2023-01-25T20:03:54.518Z",
+        "updatedAt": "2023-01-25T20:03:54.518Z",
+        "typeId": 2,
+        "brandId": 1
+      }
+    ]
     this._selectedBrand = {}
     this._page = 1
     this._totalCount = 0

@@ -49,7 +49,7 @@ const Cart = () => {
               </svg>
               <span>Back to main page</span>
             </Link>
-            <Link to="/home/payment">
+            <Link to="/checkout">
               <div className="button pay-btn">
                 <span>Pay now</span>
               </div>

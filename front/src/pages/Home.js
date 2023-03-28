@@ -3,6 +3,7 @@ import Sort from "../components/Sort";
 import TopRatedItem from "../components/TopRatedItem/TopRatedItem";
 import ItemBlock from "../components/ItemBlock/ItemBlock";
 import AboutUs from "../components/AboutUs";
+import ItemList from "../components/ItemList";
 
 
 const Home = ({aboutRef}) => {
@@ -17,17 +18,7 @@ const Home = ({aboutRef}) => {
           <Brands />
           <Sort/>
         </div>
-        <div className='content__items'>
-          <ItemBlock/>
-          <ItemBlock/>
-          <ItemBlock/>
-          <ItemBlock/>
-          <ItemBlock/>
-          <ItemBlock/>
-          <ItemBlock/>
-          <ItemBlock/>
-          <ItemBlock/>
-        </div>
+        <ItemList />
       </div>
       <AboutUs aboutRef={aboutRef}/>
     </>
