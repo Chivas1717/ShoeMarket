@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './PaymentCard.module.scss'
-import shoeLogo from '../../assets/test-item.jpg'
+import checkoutShoe from '../../assets/checkout_shoe.png'
 
 
 const PaymentCard = () => {
@@ -9,7 +9,7 @@ const PaymentCard = () => {
       <div className={styles.card}>
         <div className={styles.leftside}>
           <img
-            src={shoeLogo}
+            src={checkoutShoe}
             className={styles.product}
             alt="delivery"
           />

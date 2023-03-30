@@ -14,24 +14,26 @@ import CheckOut from "./pages/CheckOut";
 
 function App() {
   const navigate = useNavigate()
-  useEffect(() => {navigate('/home')}, [])
+  useEffect(() => {navigate('/ShoeMarket/home')}, [])
 
   const location = useLocation()
 
   const aboutRef = useRef(null)
   const paymentRef = useRef(null)
 
+
+
   return (
     <div className='wrapper'>
       <NavBar aboutRef={aboutRef}/>
       <div className='content'>
         <Routes>
-          <Route path='/home' element={<Home aboutRef={aboutRef}/>}/>
-          <Route path='/payment-refund' element={<PaymentRefund paymentRef={paymentRef} />}/>
-          <Route path='/privacy-policy' element={<PrivacyPolicy />}/>
-          <Route path='/cart' element={<Cart />}/>
-          <Route path='/checkout' element={<CheckOut />}/>
-          <Route path='/item/:id' element={<Item />}/>
+          <Route path='/ShoeMarket/home' element={<Home aboutRef={aboutRef}/>}/>
+          <Route path='/ShoeMarket/payment-refund' element={<PaymentRefund paymentRef={paymentRef} />}/>
+          <Route path='/ShoeMarket/privacy-policy' element={<PrivacyPolicy />}/>
+          <Route path='/ShoeMarket/cart' element={<Cart />}/>
+          <Route path='/ShoeMarket/checkout' element={<CheckOut />}/>
+          <Route path='/ShoeMarket/item/:id' element={<Item />}/>
           <Route path='*' element={<Home />}/>
         </Routes>
       </div>

@@ -13,8 +13,21 @@
   .title {
     position: absolute;
     left: 47%;
-    bottom: 45px;
+    bottom: 10%;
     font-size: 20px;
+
+    @media (max-width: 730px) {
+      left: 44%;
+    }
+
+    @media (max-width: 470px) {
+      left: 40%;
+      bottom: 5%;
+    }
+
+    @media (max-width: 430px) {
+      left: 37%;
+    }
   }
 
   .add {
@@ -48,8 +61,16 @@
     &:hover {
       transition: opacity 1s;
       opacity: 0.8;
+    }
 
+    @media (max-width: 730px) {
+      width: 300px;
+      height: 300px;
+    }
 
+    @media (max-width: 470px) {
+      width: 250px;
+      height: 250px;
     }
   }
   img + .add {
@@ -72,5 +93,11 @@
     margin-right: 10px;
     font-weight: bold;
     z-index: 1;
+    
+    @media (max-width: 470px) {
+      top: 30px;
+      left: 30px;
+      font-size: 12px;
+    }
   }
 }

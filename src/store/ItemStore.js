@@ -2,7 +2,7 @@ import {makeAutoObservable} from "mobx";
 
 export default class ItemStore {
   constructor() {
-    this._brands = [{name: 'Nike'}, {name: 'Adidas'}, {name: 'Puma'}, {name: 'Vans'}]
+    this._brands = [{name: 'Nike'}, {name: 'Adidas'}, {name: 'Puma'}, {name: 'Vans'}, ]
     this._items = [
       {
         "id": 1,
@@ -30,6 +30,28 @@ export default class ItemStore {
         "id": 3,
         "name": "Vans 3000",
         "price": 29999,
+        "rating": 0,
+        "img": "d91b3c44-dcfa-433d-96aa-1e0689b00bb5.jpg",
+        "createdAt": "2023-01-25T20:03:54.518Z",
+        "updatedAt": "2023-01-25T20:03:54.518Z",
+        "typeId": 2,
+        "brandId": 1
+      },
+      {
+        "id": 4,
+        "name": "Vans 4000",
+        "price": 21999,
+        "rating": 0,
+        "img": "d91b3c44-dcfa-433d-96aa-1e0689b00bb5.jpg",
+        "createdAt": "2023-01-25T20:03:54.518Z",
+        "updatedAt": "2023-01-25T20:03:54.518Z",
+        "typeId": 2,
+        "brandId": 1
+      },
+      {
+        "id": 5,
+        "name": "Vans 23000",
+        "price": 22999,
         "rating": 0,
         "img": "d91b3c44-dcfa-433d-96aa-1e0689b00bb5.jpg",
         "createdAt": "2023-01-25T20:03:54.518Z",
