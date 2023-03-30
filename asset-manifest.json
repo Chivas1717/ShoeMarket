@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/ShoeMarket/static/css/main.7f21c59f.css",
+    "main.js": "/ShoeMarket/static/js/main.91b4fb12.js",
+    "static/media/checkout_shoe.png": "/ShoeMarket/static/media/checkout_shoe.4196c144acd0600ef74e.png",
+    "static/media/photo_2023-02-14_18-21-52.jpg": "/ShoeMarket/static/media/photo_2023-02-14_18-21-52.1ba893eb768d433f8199.jpg",
+    "static/media/test-item.jpg": "/ShoeMarket/static/media/test-item.8ffbbba97f59923e3309.jpg",
+    "static/media/shoe-icon.svg": "/ShoeMarket/static/media/shoe-icon.5b811944d12b0cc7ce2f4aaadc0f8b8f.svg",
+    "static/media/garbage-icon.svg": "/ShoeMarket/static/media/garbage-icon.9fd970a8056634bf13fedb8f65846aef.svg",
+    "static/media/cart-icon-cropped.svg": "/ShoeMarket/static/media/cart-icon-cropped.cb55e21acc6003ed18c2a66987cacefd.svg",
+    "static/media/search-icon.svg": "/ShoeMarket/static/media/search-icon.948d5d4cc627d9ca00c5ab465e6e805f.svg",
+    "static/media/clear-search-icon.svg": "/ShoeMarket/static/media/clear-search-icon.9b14e15ac7a824d952fded9b302e98e5.svg",
+    "index.html": "/ShoeMarket/index.html",
+    "main.7f21c59f.css.map": "/ShoeMarket/static/css/main.7f21c59f.css.map",
+    "main.91b4fb12.js.map": "/ShoeMarket/static/js/main.91b4fb12.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7f21c59f.css",
+    "static/js/main.91b4fb12.js"
+  ]
+}
