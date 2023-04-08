@@ -54,6 +54,7 @@
   &__icons {
     display: flex;
     align-items: center;
+    position: relative;
 
 
     .admin {
@@ -76,6 +77,57 @@
       height: 50px;
       margin: 0 3px;
       cursor: pointer;
+    }
+  }
+
+  .login-popup {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    margin-top: 15px;
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 160px;
+    z-index: 2;
+
+    ul {
+      overflow: hidden;
+
+      li {
+        padding: 12px 20px;
+        cursor: pointer;
+        text-align: center;
+
+        &.or {
+          color: #7b7b7b;
+          font-size: 10px;
+          padding: 12px 20px 2px 20px;
+
+          &.active,
+          &:hover {
+            background: $white;
+            cursor: auto;
+          }
+        }
+
+        &.option {
+          color: #7b7b7b;
+          font-size: 12px;
+        }
+
+        &.active,
+        &:hover {
+          background: $grey-bg;
+        }
+
+        &.active {
+          font-weight: bold;
+          color: $black;
+        }
+      }
     }
   }
 }

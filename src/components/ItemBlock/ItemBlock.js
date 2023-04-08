@@ -4,7 +4,7 @@ import {Link, useNavigate} from "react-router-dom";
 const ItemBlock = ({item}) => {
   const navigate = useNavigate();
   const onClickItem = () => {
-    navigate('/item/' + item.id)
+    navigate('ShoeMarket/item/' + item.id)
   }
 
   return (

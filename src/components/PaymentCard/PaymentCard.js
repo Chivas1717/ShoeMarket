@@ -16,8 +16,8 @@ const PaymentCard = () => {
         </div>
         <div className={styles.rightside}>
           <form action="" onSubmit={(e) => {
-            e.preventDefault()
-            alert('paid!')
+            e.preventDefault();
+            alert('paid!');
           }
           }>
             <h1>CheckOut</h1>

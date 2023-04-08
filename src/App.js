@@ -11,6 +11,7 @@ import Cart from "./pages/Cart";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Item from "./pages/Item";
 import CheckOut from "./pages/CheckOut";
+import Auth from "./pages/Auth";
 
 function App() {
   const navigate = useNavigate()
@@ -33,6 +34,7 @@ function App() {
           <Route path='/ShoeMarket/privacy-policy' element={<PrivacyPolicy />}/>
           <Route path='/ShoeMarket/cart' element={<Cart />}/>
           <Route path='/ShoeMarket/checkout' element={<CheckOut />}/>
+          <Route path='/ShoeMarket/auth' element={<Auth />}/>
           <Route path='/ShoeMarket/item/:id' element={<Item />}/>
           <Route path='*' element={<Home />}/>
         </Routes>

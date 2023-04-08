@@ -31,7 +31,7 @@ const Cart = () => {
           <div className="cart__bottom-buttons">
             <Link
               // onClick={onClickGoBack}
-              to="/home"
+              to="/ShoeMarket/home"
               className="button go-back-btn">
               <svg
                 width="8"
@@ -47,11 +47,11 @@ const Cart = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span>Back to main page</span>
+              <span>Продовжити покупки</span>
             </Link>
-            <Link to="/checkout">
+            <Link to="/ShoeMarket/checkout">
               <div className="button pay-btn">
-                <span>Pay now</span>
+                <span>Оплатити</span>
               </div>
             </Link>
           </div>

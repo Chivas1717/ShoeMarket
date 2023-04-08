@@ -8,13 +8,16 @@ import CloseIcon from '../assets/clear-search-icon.svg'
 
 
 import Search from "./Search/Search";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 const NavBar = ({ aboutRef }) => {
     const navigate = useNavigate()
     const location = useLocation()
 
     const [drawerIsOpened, setDrawerIsOpened] = useState(false);
+    const [popUpIsOpened, setPopUpIsOpened] = useState(false);
+
+    const loginRef = useRef(null);
 
     const onClickAboutNavigate = () => {
         setDrawerIsOpened(false);
@@ -23,6 +26,25 @@ const NavBar = ({ aboutRef }) => {
         }
         aboutRef.current.scrollIntoView({behavior:'smooth', block: 'start'})
     }
+
+    const onClickLoginPopUpActivated = () => {
+        setPopUpIsOpened(!popUpIsOpened);
+    };
+
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+
+            if (loginRef.current && !loginRef.current.contains(event.target)) {
+                setPopUpIsOpened(false);
+            }
+        };
+
+        document.body.addEventListener('click', handleOutsideClick);
+
+        return () => {
+            document.body.removeEventListener('click', handleOutsideClick);
+        };
+    }, []);
 
     return (
       <>
@@ -47,7 +69,27 @@ const NavBar = ({ aboutRef }) => {
                 {location.pathname === '/ShoeMarket/home' && <Search/>}
                 <div className='header__icons'>
                     <Link to='/ShoeMarket/admin'><img className='admin' src={AdminIcon} alt='admin'/></Link>
-                    <img className='profile' src={ProfileIcon} alt='profile'/>
+                    <img onClick={onClickLoginPopUpActivated} ref={loginRef} className='profile' src={ProfileIcon} alt='profile'/>
+                    {popUpIsOpened && (
+                      <div  className="login-popup">
+                        <ul>
+                            <Link to='/ShoeMarket/auth'>
+                              <li>
+                                Увійти
+                              </li>
+                            </Link>
+                            <li>
+                                Закази
+                            </li>
+                            <li className='or'>
+                                або
+                            </li>
+                            <li className='option'>
+                                Зареєструватись
+                            </li>
+                        </ul>
+                      </div>
+                    )}
                     <Link to='/ShoeMarket/cart'><img className='cart' src={CartIcon} alt='cart'/></Link>
                 </div>
             </div>

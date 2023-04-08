@@ -1,6 +1,5 @@
 import imageTest from '../assets/photo_2023-02-14_18-21-52.jpg'
 import {useState} from "react";
-import {set} from "mobx";
 
 const CartItem = () => {
   const [count, setCount] = useState(1)
@@ -27,7 +26,7 @@ const CartItem = () => {
           <div className="cart__item-info">
             <h3 className='second'>Yeezy Boost</h3>
             <p>
-              Size: 38
+              Розмір: 38
             </p>
           </div>
           <div className="cart__item-count">

@@ -8,8 +8,8 @@ const Footer = ({ paymentRef }) => {
   const location = useLocation()
   const navigate = useNavigate()
   const onClickPaymentMethods = () => {
-    if (location.pathname !== '/payment-refund') {
-      navigate('/payment-refund')
+    if (location.pathname !== '/ShoeMarket/payment-refund') {
+      navigate('/ShoeMarket/payment-refund')
     }
     paymentRef.current.scrollIntoView()
   }
