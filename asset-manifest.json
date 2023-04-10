@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ShoeMarket/static/css/main.35069b5e.css",
-    "main.js": "/ShoeMarket/static/js/main.56df67fd.js",
+    "main.css": "/ShoeMarket/static/css/main.bb7e761b.css",
+    "main.js": "/ShoeMarket/static/js/main.fcf96465.js",
     "static/media/checkout_shoe.png": "/ShoeMarket/static/media/checkout_shoe.4196c144acd0600ef74e.png",
     "static/media/photo_2023-02-14_18-21-52.jpg": "/ShoeMarket/static/media/photo_2023-02-14_18-21-52.1ba893eb768d433f8199.jpg",
     "static/media/test-item.jpg": "/ShoeMarket/static/media/test-item.8ffbbba97f59923e3309.jpg",
@@ -10,12 +10,14 @@
     "static/media/cart-icon-cropped.svg": "/ShoeMarket/static/media/cart-icon-cropped.cb55e21acc6003ed18c2a66987cacefd.svg",
     "static/media/search-icon.svg": "/ShoeMarket/static/media/search-icon.948d5d4cc627d9ca00c5ab465e6e805f.svg",
     "static/media/clear-search-icon.svg": "/ShoeMarket/static/media/clear-search-icon.9b14e15ac7a824d952fded9b302e98e5.svg",
+    "static/media/eye-hide.svg": "/ShoeMarket/static/media/eye-hide.dfec5cd34b351c18b4c0e83155aa5f84.svg",
+    "static/media/eye-open.svg": "/ShoeMarket/static/media/eye-open.75ee33b9eaf4637b26b99b2df30e2e11.svg",
     "index.html": "/ShoeMarket/index.html",
-    "main.35069b5e.css.map": "/ShoeMarket/static/css/main.35069b5e.css.map",
-    "main.56df67fd.js.map": "/ShoeMarket/static/js/main.56df67fd.js.map"
+    "main.bb7e761b.css.map": "/ShoeMarket/static/css/main.bb7e761b.css.map",
+    "main.fcf96465.js.map": "/ShoeMarket/static/js/main.fcf96465.js.map"
   },
   "entrypoints": [
-    "static/css/main.35069b5e.css",
-    "static/js/main.56df67fd.js"
+    "static/css/main.bb7e761b.css",
+    "static/js/main.fcf96465.js"
   ]
 }
