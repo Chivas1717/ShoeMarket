@@ -16,7 +16,10 @@ import Contact from "./pages/Contact";
 
 function App() {
   const navigate = useNavigate()
-  useEffect(() => {navigate('home')}, [])
+  useEffect(() => {
+    if (location.pathname === '/')
+    navigate('/home')
+  }, [])
 
   const location = useLocation()
 
