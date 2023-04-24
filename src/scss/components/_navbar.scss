@@ -155,6 +155,12 @@
   z-index: 3;
   display: none;
 
+  .temp-wrapper {
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+
   @media (max-width: 960px) {
     display: block;
   }

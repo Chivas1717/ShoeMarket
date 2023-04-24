@@ -12,7 +12,7 @@ body {
 }
 
 .content {
-  padding: 40px 0 0;
+  padding: 20px 0 0;
 
   &__error-info {
     text-align: center;
@@ -134,10 +134,24 @@ body {
   width: 97%;
   margin: 0 auto;
 
+  .mobile--search {
+    margin: 0 auto 30px auto;
+    display: none;
+
+    @media (max-width: 640px) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
   &--item {
     margin: 0 20px 50px;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 790px) {
+      flex-direction: column;
+    }
 
     .picture {
       flex: 40%;
@@ -146,19 +160,56 @@ body {
       border-radius: 25px;
       background: $grey-bg;
       align-items: center;
+      justify-content: center;
 
       @media (max-width: 1340px) {
         max-height: 300px;
       }
 
+      @media (max-width: 920px) {
+        max-height: 250px;
+      }
+
+      @media (max-width: 790px) {
+        max-height: 400px;
+      }
+
+      @media (max-width: 500px) {
+        max-height: 300px;
+      }
+
+      @media (max-width: 400px) {
+        max-height: 240px;
+      }
+
 
       img {
-        height: 400px;
-        width: 400px;
+        height: 500px;
+        width: 500px;
 
         @media (max-width: 1340px) {
           height: 300px;
           width: 300px;
+        }
+
+        @media (max-width: 920px) {
+          height: 250px;
+          width: 250px;
+        }
+
+        @media (max-width: 790px) {
+          height: 400px;
+          width: 400px;
+        }
+
+        @media (max-width: 500px) {
+          height: 300px;
+          width: 300px;
+        }
+
+        @media (max-width: 400px) {
+          height: 240px;
+          width: 240px;
         }
       }
 
@@ -169,18 +220,24 @@ body {
 
     .sizes {
       display: flex;
+      flex-wrap: wrap;
       position: relative;
       margin: 15px 0;
-      justify-content: space-between;
+      //justify-content: space-between;
 
       .size {
         position: relative;
         margin-right: 15px;
+        margin-bottom: 15px;
         padding: 20px 20px;
         background-color: $grey-bg;
         border-radius: 10px;
         cursor: pointer;
         transition: color 0.3s ease-in-out, background-color 0.5s ease-in-out;
+
+        @media (max-width: 790px) {
+          margin: 10px;
+        }
 
         &:hover {
           background-color: $black;
@@ -216,29 +273,48 @@ body {
 
     .description {
       position: relative;
+      margin-top: 50px;
       .title {
         font-size: 25px;
         margin-bottom: 30px;
       }
-
-      .text {
-
-      }
     }
 
     .details {
-      padding: 10px 40px;
+      padding: 10px 20px 10px 40px;
       flex: 60%;
       position: relative;
       display: flex;
       flex-direction: column;
 
+      @media (max-width: 790px) {
+        padding: 10px 10px 10px 10px;
+      }
+
       .title {
         font-size: 30px;
         margin-bottom: 30px;
+
+        &.desktop {
+          @media (max-width: 790px) {
+            display: none;
+          }
+        }
       }
 
+      h2 {
+        margin-bottom: 15px;
+        margin-top: 10px;
+      }
 
+      &.mobile {
+        display: none;
+        padding: 10px 10px 10px 10px;
+
+        @media (max-width: 790px) {
+          display: flex;
+        }
+      }
 
       .price {
         display: flex;
@@ -246,6 +322,12 @@ body {
         font-size: 20px;
         align-items: center;
         justify-content: space-between;
+
+        &.desktop {
+          @media (max-width: 790px) {
+            display: none;
+          }
+        }
 
         button {
           position: relative;
@@ -257,6 +339,11 @@ body {
           font-weight: bold;
           border-width: 0;
           cursor: pointer;
+
+          @media (max-width: 400px) {
+            font-size: 13px;
+            padding: 9px 15px;
+          }
         }
       }
     }
@@ -711,11 +798,24 @@ body {
   display: flex;
   flex-direction: column;
 
+  .input--wrapper {
+    position: relative;
+
+    img {
+      position: absolute;
+      right: 10px;
+      top: 4px;
+      z-index: 3;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
   .card {
     display: flex;
     flex-direction: column;
     width: 50rem;
-    margin: auto;
+    margin: 30px auto;
     background: $grey-bg;
     position:center;
     align-self: center;
@@ -726,15 +826,30 @@ body {
     justify-content: center;
     padding: 50px 30px;
 
+    .switch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 15px;
+
+      h2 {
+
+      }
+
+      h4 {
+
+      }
+    }
+
     form {
       display: flex;
       flex-direction: column;
 
       .submit {
         background: linear-gradient(135deg, #804888 0%, #2E97B0 100%);
-        width: 80%;
+        //width: 80%;
         cursor: pointer;
-        padding: 15px;
+        padding: 15px 30px;
         border: none;
         border-radius: 50px;
         color: white;
@@ -778,6 +893,159 @@ body {
 
     &:not(:placeholder-shown) {
       opacity: 1;
+    }
+  }
+}
+
+.wrapper-contact-form {
+
+  #title-Tag-Line {
+    font-size: 20px;
+  }
+
+  .map {
+    position: absolute;
+    left: 40px;
+    top: 50px;
+
+    &:hover {
+      box-shadow: 10px 10px 8px 10px #888888;
+    }
+  }
+
+  .map h1 {
+    font-family: sans-serif;
+    text-align: center;
+  }
+
+  .form {
+    background: #fff;
+    box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+    border-radius: 5px;
+    max-width: 480px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    top: 50px;
+    left: 30px;
+    right: 0;
+    position: absolute;
+    border-top: 5px solid #0e3721;
+    animation: bounce 1.5s infinite;
+  }
+  ::-webkit-input-placeholder {
+    font-size: 1.3em;
+  }
+
+  .title {
+    display: block;
+    font-family: sans-serif;
+    margin: 10px auto 5px;
+    width: 300px;
+  }
+  .termsConditions {
+    margin: 0 auto 5px 80px;
+  }
+
+  .pageTitle {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .secondaryTitle {
+    color: grey;
+  }
+
+  .name {
+    background-color: #ebebeb;
+    color: #0e3721;
+
+    &:hover {
+      border-bottom: 5px solid #0e3721;
+      height: 30px;
+      width: 380px;
+      transition: ease 0.5s;
+    }
+  }
+
+  .email {
+    background-color: #ebebeb;
+    height: 2em;
+
+    &:hover {
+      border-bottom: 5px solid #0e3721;
+      height: 30px;
+      width: 380px;
+      transition: ease 0.5s;
+    }
+  }
+
+  .message {
+    background-color: #ebebeb;
+    overflow: hidden;
+    height: 10rem;
+
+    &:hover {
+      border-bottom: 5px solid #0e3721;
+      height: 12em;
+      width: 380px;
+      transition: ease 0.5s;
+    }
+  }
+
+  .formEntry {
+    display: block;
+    margin: 30px auto;
+    min-width: 300px;
+    padding: 10px;
+    border-radius: 2px;
+    border: none;
+    transition: all 0.5s ease 0s;
+  }
+
+  .submit {
+    width: 200px;
+    color: white;
+    background-color: #0e3721;
+    font-size: 20px;
+
+    &:hover {
+      box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+      transform: translateY(-3px);
+      width: 300px;
+      border-top: 5px solid #0e3750;
+      border-radius: 0%;
+    }
+  }
+
+  .back-btn {
+    width: 200px;
+    color: white;
+    background-color: #d50611;
+    font-size: 20px;
+    position: absolute;
+    right: 50px;
+    top: 20px;
+
+    &:hover {
+      box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+      transform: translateY(-3px);
+      border-radius: 0;
+    }
+    & a{
+      text-decoration: none;
+      color: white;
+      font-family: sans-serif;
+    }
+  }
+
+  @keyframes bounce {
+    0% {
+      tranform: translate(0, 4px);
+    }
+    50% {
+      transform: translate(0, 5px);
     }
   }
 }

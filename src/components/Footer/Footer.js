@@ -8,8 +8,8 @@ const Footer = ({ paymentRef }) => {
   const location = useLocation()
   const navigate = useNavigate()
   const onClickPaymentMethods = () => {
-    if (location.pathname !== '/ShoeMarket/payment-refund') {
-      navigate('/ShoeMarket/payment-refund')
+    if (location.pathname !== '/payment-refund') {
+      navigate('/payment-refund')
     }
     paymentRef.current.scrollIntoView()
   }
@@ -17,8 +17,8 @@ const Footer = ({ paymentRef }) => {
   return (
     <div className={styles.root}>
       <div className={styles.column}>
-        <Link to='/ShoeMarket/payment-refund'><div className={styles.row}>Оплата і повернення</div></Link>
-        <Link to='/ShoeMarket/privacy-policy'><div className={styles.row}>Політика конфіденціальності</div></Link>
+        <Link to='/payment-refund'><div className={styles.row}>Оплата і повернення</div></Link>
+        <Link to='/privacy-policy'><div className={styles.row}>Політика конфіденціальності</div></Link>
         <div className={styles.row} onClick={() => onClickPaymentMethods()}>Методи оплати</div>
       </div>
       <div className={styles.column}>

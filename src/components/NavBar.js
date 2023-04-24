@@ -21,8 +21,8 @@ const NavBar = ({ aboutRef }) => {
 
     const onClickAboutNavigate = () => {
         setDrawerIsOpened(false);
-        if (location.pathname !== '/ShoeMarket/home') {
-            navigate('/ShoeMarket/home')
+        if (location.pathname !== '/home') {
+            navigate('/home')
         }
         aboutRef.current.scrollIntoView({behavior:'smooth', block: 'start'})
     }
@@ -48,11 +48,10 @@ const NavBar = ({ aboutRef }) => {
 
     return (
       <>
-
         <div className='header'>
             <div className='container'>
-                <div className='hot-line'><span>Горяча лінія:</span> Пн-Пт: 9:00-19:00     (+38) 123-456-7890</div>
-                <Link to='/ShoeMarket/home'>
+                <div className='hot-line'><span>Гаряча лінія:</span> Пн-Пт: 9:00-19:00     (+38) 123-456-7890</div>
+                <Link to='/home'>
                     <div className='header__logo'>
                         <img width='49' src={LogoShoe} alt="LogoShoe"/>
                         <div>
@@ -62,42 +61,44 @@ const NavBar = ({ aboutRef }) => {
                     </div>
                 </Link>
                 <div className='header__sections'>
-                    <Link to='/ShoeMarket/home'><div className='section'>Магазин</div></Link>
+                    <Link to='/home'><div className='section'>Магазин</div></Link>
                     <div onClick={() => onClickAboutNavigate()} className='section'>Про нас</div>
-                    <div className='section'>Контакти</div>
+                    <Link to='/contact'><div className='section'>Контакти</div></Link>
                 </div>
-                {location.pathname === '/ShoeMarket/home' && <Search/>}
+                {location.pathname === '/home' && <Search/>}
                 <div className='header__icons'>
-                    <Link to='/ShoeMarket/admin'><img className='admin' src={AdminIcon} alt='admin'/></Link>
+                    <Link to='/admin'><img className='admin' src={AdminIcon} alt='admin'/></Link>
                     <img onClick={onClickLoginPopUpActivated} ref={loginRef} className='profile' src={ProfileIcon} alt='profile'/>
                     {popUpIsOpened && (
                       <div  className="login-popup">
                         <ul>
-                            <Link to='/ShoeMarket/auth'>
-                              <li>
-                                Увійти
-                              </li>
-                            </Link>
+                          <Link to='/login'>
                             <li>
-                                Закази
+                              Увійти
                             </li>
-                            <li className='or'>
-                                або
-                            </li>
+                          </Link>
+                          <li>
+                            Закази
+                          </li>
+                          <li className='or'>
+                            або
+                          </li>
+                          <Link to='/registration'>
                             <li className='option'>
-                                Зареєструватись
+                              Зареєструватись
                             </li>
+                          </Link>
                         </ul>
                       </div>
                     )}
-                    <Link to='/ShoeMarket/cart'><img className='cart' src={CartIcon} alt='cart'/></Link>
+                    <Link to='/cart'><img className='cart' src={CartIcon} alt='cart'/></Link>
                 </div>
             </div>
         </div>
           <div className='header2'>
               <div className='container'>
-                  <div className='hot-line'><span>Горяча лінія:</span> Пн-Пт: 9:00-19:00     (+38) 123-456-7890</div>
-                  <Link to='/ShoeMarket/home'>
+                  <div className='hot-line'><span>Гаряча лінія:</span> Пн-Пт: 9:00-19:00     (+38) 123-456-7890</div>
+                  <Link to='/home'>
                       <div className='header2__logo'>
                           <img width='49' src={LogoShoe} alt="LogoShoe"/>
                           <div>
@@ -106,9 +107,10 @@ const NavBar = ({ aboutRef }) => {
                           </div>
                       </div>
                   </Link>
+                  {location.pathname === '/home' && <div className='temp-wrapper'><Search/></div>}
                   <div className='header2__icons'>
-                      <Link to='/ShoeMarket/admin'><img className='admin' src={AdminIcon} alt='admin'/></Link>
-                      <Link to='/ShoeMarket/cart'><img className='cart' src={CartIcon} alt='cart'/></Link>
+                      <Link to='/admin'><img className='admin' src={AdminIcon} alt='admin'/></Link>
+                      <Link to='/cart'><img className='cart' src={CartIcon} alt='cart'/></Link>
                       <img className='menu' src={MenuIcon} alt='menu' onClick={() => setDrawerIsOpened(true)}/>
                   </div>
               </div>

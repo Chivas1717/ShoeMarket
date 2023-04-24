@@ -12,10 +12,11 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Item from "./pages/Item";
 import CheckOut from "./pages/CheckOut";
 import Auth from "./pages/Auth";
+import Contact from "./pages/Contact";
 
 function App() {
   const navigate = useNavigate()
-  useEffect(() => {navigate('/ShoeMarket/home')}, [])
+  useEffect(() => {navigate('home')}, [])
 
   const location = useLocation()
 
@@ -29,17 +30,19 @@ function App() {
       <NavBar aboutRef={aboutRef}/>
       <div className='content'>
         <Routes>
-          <Route path='/ShoeMarket/home' element={<Home aboutRef={aboutRef}/>}/>
-          <Route path='/ShoeMarket/payment-refund' element={<PaymentRefund paymentRef={paymentRef} />}/>
-          <Route path='/ShoeMarket/privacy-policy' element={<PrivacyPolicy />}/>
-          <Route path='/ShoeMarket/cart' element={<Cart />}/>
-          <Route path='/ShoeMarket/checkout' element={<CheckOut />}/>
-          <Route path='/ShoeMarket/auth' element={<Auth />}/>
-          <Route path='/ShoeMarket/item/:id' element={<Item />}/>
+          <Route path='/home' element={<Home aboutRef={aboutRef}/>}/>
+          <Route path='/payment-refund' element={<PaymentRefund paymentRef={paymentRef} />}/>
+          <Route path='/privacy-policy' element={<PrivacyPolicy />}/>
+          <Route path='/cart' element={<Cart />}/>
+          <Route path='/checkout' element={<CheckOut />}/>
+          <Route path='/login' element={<Auth />}/>
+          <Route path='/registration' element={<Auth />}/>
+          <Route path='/home/item/:id' element={<Item />}/>
+          <Route path='/contact' element={<Contact />}/>
           <Route path='*' element={<Home />}/>
         </Routes>
       </div>
-      {location.pathname !== '/cart' && <div className='content__footer'><Footer paymentRef={paymentRef}/></div>}
+      {location.pathname !== 'cart' && location.pathname !== 'contact' && <div className='content__footer'><Footer paymentRef={paymentRef}/></div>}
     </div>
   );
 }

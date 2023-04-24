@@ -10,11 +10,15 @@ const Item = () => {
 
   return (
       <div className='container--main--item'>
+        <div className='details mobile'>
+          <div className='title'>Jordan 450</div>
+          <div className='price'>15000₴<button>Порівняти ціну</button></div>
+        </div>
         <div className='picture'><img alt='item' src={Shoes}/></div>
         <div className='details'>
-          <div className='title'>Jordan 450</div>
-          <div className='price'>15000<button>Порівняти ціну</button></div>
-          <div className='title'>Обери розмір:</div>
+          <div className='title desktop'>Jordan 450</div>
+          <div className='price desktop'>15000₴<button>Порівняти ціну</button></div>
+          <h2>Обери розмір:</h2>
           <div className='sizes'>
             {sizes.map((size) => (
               <div
