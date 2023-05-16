@@ -17,8 +17,10 @@ import Contact from "./pages/Contact";
 function App() {
   const navigate = useNavigate()
   useEffect(() => {
-    if (location.pathname === '/')
-    navigate('/home')
+    if (location.pathname === '/') {
+      navigate('/home')
+      console.log('редирект на хоум')
+    }
   }, [])
 
   const location = useLocation()
@@ -42,7 +44,7 @@ function App() {
           <Route path='/registration' element={<Auth />}/>
           <Route path='/home/item/:id' element={<Item />}/>
           <Route path='/contact' element={<Contact />}/>
-          <Route path='*' element={<Home />}/>
+          <Route path='*' element={<Home aboutRef={aboutRef}/>}/>
         </Routes>
       </div>
       {location.pathname !== 'cart' && location.pathname !== 'contact' && <div className='content__footer'><Footer paymentRef={paymentRef}/></div>}
