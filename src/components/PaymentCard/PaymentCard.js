@@ -1,9 +1,15 @@
 import React from 'react';
 import styles from './PaymentCard.module.scss'
 import checkoutShoe from '../../assets/checkout_shoe.png'
+import {useNavigate} from "react-router-dom";
 
 
 const PaymentCard = () => {
+  const navigate = useNavigate()
+  const onSubmit = () => {
+    navigate('/success')
+  }
+
   return (
     <div className={styles.mainscreen}>
       <div className={styles.card}>
@@ -22,14 +28,14 @@ const PaymentCard = () => {
           }>
             <h1>CheckOut</h1>
             <h2>Payment Information</h2>
-            <p className={styles.lineText}>Cardholder Name</p>
+            <p className={styles.lineText}>ПІБ власника картки</p>
             <input type="text" className={styles.inputbox} name="name" required/>
-            <p className={styles.lineText}>Card Number</p>
+            <p className={styles.lineText}>Номер картки</p>
             <input type="number" className={styles.inputbox} name="card_number" id="card_number" required/>
 
-            <p className={styles.lineText}>Card Type</p>
+            <p className={styles.lineText}>Тип картки</p>
             <select className={styles.inputbox} name="card_type" id="card_type" required>
-              <option value="">--Select a Card Type--</option>
+              <option value="">--Оберіть тип картки--</option>
               <option value="Visa">Visa</option>
               <option value="MasterCard">MasterCard</option>
             </select>
@@ -42,7 +48,7 @@ const PaymentCard = () => {
               <input type="password" className={styles.inputbox} name="cvv" id="cvv" required/>
             </div>
             <p className={styles.lineText}></p>
-            <button type="submit" className={styles.proceed}>CheckOut</button>
+            <button type="submit" className={styles.proceed} onClick={onSubmit}>Оплатити</button>
           </form>
         </div>
       </div>

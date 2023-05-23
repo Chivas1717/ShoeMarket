@@ -755,7 +755,7 @@ body {
   }
 
   &--empty {
-    margin: 0 auto;
+    margin: 0 auto 70px auto;
     width: 560px;
     text-align: center;
 
@@ -783,11 +783,17 @@ body {
     }
 
     .button--black {
-      padding: 12px 0 14px;
+      background: black;
+      border-radius: 20px;
+      padding: 12px 20px 14px 20px  ;
       width: 230px;
-      margin: 0 auto;
+      margin: 0 auto 80px auto;
       font-weight: 600;
       font-size: 18px;
+
+      span {
+        color: white;
+      }
     }
   }
 }
@@ -898,6 +904,7 @@ body {
 }
 
 .wrapper-contact-form {
+  min-height: 700px;
 
   #title-Tag-Line {
     font-size: 20px;
@@ -1049,3 +1056,24 @@ body {
     }
   }
 }
+
+.successscreen {
+  min-height: 100vh;
+  //width: 100%;
+  display: flex;
+  flex-direction: column;
+  color:#963E7B;
+  background: #f4f4f4;
+
+
+  h2 {
+    margin: 50px auto 10px;
+  }
+
+  img {
+    margin: 30px auto;
+    height: 400px;
+    width: 400px;
+  }
+}
+

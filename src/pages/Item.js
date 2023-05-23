@@ -1,23 +1,33 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Shoes from '../assets/test-item.jpg'
 import {useParams} from "react-router-dom";
+import {Context} from "../index";
+import {fetchOneItem} from "../http/itemApi";
 
 const Item = () => {
+  const [item, setItem] = useState({info: []})
+  const [sizes, setSizes] = useState([])
   const {id} = useParams(); // після цього запит на сервер, отримаємо по id весь item
+  useEffect(() => {
+    fetchOneItem(id).then((data) => {
+      setItem(data)
+      setSizes(data.sizes.split('_'));
+    })
+  }, [])
+  const {cart} = useContext(Context);
 
-  const sizes = [37, 38, 39, 40, 41, 42, 43, 44, 45]
   const [selectedSize, setSelectedSize] = useState(0);
 
   return (
       <div className='container--main--item'>
         <div className='details mobile'>
-          <div className='title'>Jordan 450</div>
-          <div className='price'>15000₴<button>Порівняти ціну</button></div>
+          <div className='title'>{item.name}</div>
+          <div className='price'>{item.price}₴<button>Порівняти ціну</button></div>
         </div>
-        <div className='picture'><img alt='item' src={Shoes}/></div>
+        <div className='picture'><img alt='item' src={'http://localhost:7000/' + item.img}/></div>
         <div className='details'>
-          <div className='title desktop'>Jordan 450</div>
-          <div className='price desktop'>15000₴<button>Порівняти ціну</button></div>
+          <div className='title desktop'>{item.name}</div>
+          <div className='price desktop'>{item.price}₴<button>Порівняти ціну</button></div>
           <h2>Обери розмір:</h2>
           <div className='sizes'>
             {sizes.map((size) => (
@@ -31,12 +41,12 @@ const Item = () => {
             ))}
           </div>
           {/*чорна магія, сорі*/}
-          <button disabled={!selectedSize} className='add-btn'>
+          <button disabled={!selectedSize} className='add-btn' onClick={() => cart.addItem({...item, selectedSize: selectedSize})}>
             Додати в кошик
           </button>
           <div className='description'>
             <div className='title'>Опис</div>
-            <div className='text'>Натхненний оригінальним Yeezy boost 350, це видання середнього розміру зберігає культовий вигляд, який вам подобається, а добірні кольори та якісні матеріали надають йому виразної ідентичності.</div>
+            <div className='text'>{item.info}</div>
           </div>
         </div>
       </div>

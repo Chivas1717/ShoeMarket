@@ -1,15 +1,19 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import styles from "../components/Search/Search.module.scss";
 import ShowPasswordIcon from "../assets/eye-open.svg";
 import HidePasswordIcon from "../assets/eye-hide.svg";
+import {login, registration} from "../http/userApi";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
 
 
-const Auth = () => {
+const Auth = observer(() => {
+  const {user} = useContext(Context);
+
   const [loginValue, setLoginValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
   const [passwordShown, setPasswordShown] = useState(false);
-
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,10 +30,22 @@ const Auth = () => {
     setPasswordValue(e.target.value)
   }
 
-  const onClickLogin = (e) => {
+  const onClickLogin = async (e) => {
     e.preventDefault()
-    alert("Вітаємо! Ви увійшли в свій акаунт!")
-    navigate('/home')
+    try {
+      let data;
+      if (location.pathname === '/login') {
+        data = await login(loginValue, passwordValue);
+      } else {
+        data = await registration(loginValue, passwordValue);
+      }
+      user.setUser('test1@gmail.com')
+      user.setIsAuth(true)
+      navigate('/home')
+    } catch (e) {
+      alert(e)
+    }
+
   }
 
   return (
@@ -73,6 +89,6 @@ const Auth = () => {
       </div>
     </div>
   );
-};
+})
 
 export default Auth;

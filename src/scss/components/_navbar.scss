@@ -116,6 +116,10 @@
         &.option {
           color: #7b7b7b;
           font-size: 12px;
+
+          &__red {
+            color: #d01717;
+          }
         }
 
         &.active,

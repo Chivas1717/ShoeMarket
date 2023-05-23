@@ -1,15 +1,17 @@
-import {useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
 
-const Sort = () => {
+const Sort = observer(() => {
+  const {item} = useContext(Context)
   const sortRef = useRef(null)
   const [sortOpen, setSortOpen] = useState(false);
-  const [sortType, setSortType] = useState('алфавітом')
 
   const sortTypes = ['алфавітом', 'ціною', 'популярністю']
 
   const onClickSortActivated = (type) => {
     setSortOpen(!sortOpen);
-    setSortType(type)
+    item.setSortType(type)
   };
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const Sort = () => {
       <div className="sort__label">
 
         <b>Сортувати за:</b>
-        <span onClick={() => setSortOpen(!sortOpen)}>{sortType}</span>
+        <span onClick={() => setSortOpen(!sortOpen)}>{item.sortType}</span>
       </div>
       {sortOpen && (
         <div className="sort__popup">
@@ -42,7 +44,7 @@ const Sort = () => {
                 <li
                   key={index}
                   onClick={() => onClickSortActivated(type)}
-                  className={sortType === type ? 'active' : ''}>
+                  className={item.sortType === type ? 'active' : ''}>
                   {type}
                 </li>
               );
@@ -52,6 +54,6 @@ const Sort = () => {
       )}
     </div>
   )
-}
+})
 
 export default Sort

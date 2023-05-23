@@ -8,9 +8,13 @@ import CloseIcon from '../assets/clear-search-icon.svg'
 
 
 import Search from "./Search/Search";
-import {useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
 
-const NavBar = ({ aboutRef }) => {
+const NavBar = observer(({ aboutRef }) => {
+    const {user} = useContext(Context)
+
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -25,6 +29,11 @@ const NavBar = ({ aboutRef }) => {
             navigate('/home')
         }
         aboutRef.current.scrollIntoView({behavior:'smooth', block: 'start'})
+    }
+
+    const logOut = () => {
+        user.setUser({})
+        user.setIsAuth(false)
     }
 
     const onClickLoginPopUpActivated = () => {
@@ -46,55 +55,66 @@ const NavBar = ({ aboutRef }) => {
         };
     }, []);
 
+    // console.log(user.user)
+
     return (
       <>
-        <div className='header'>
-            <div className='container'>
-                <div className='hot-line'><span>Гаряча лінія:</span> Пн-Пт: 9:00-19:00     (+38) 123-456-7890</div>
-                <Link to='/home'>
-                    <div className='header__logo'>
-                        <img width='49' src={LogoShoe} alt="LogoShoe"/>
-                        <div>
-                            <h1>ShoeMarket</h1>
-                            <p>обирай комфорт</p>
-                        </div>
-                    </div>
-                </Link>
-                <div className='header__sections'>
-                    <Link to='/home'><div className='section'>Магазин</div></Link>
-                    <div onClick={() => onClickAboutNavigate()} className='section'>Про нас</div>
-                    <Link to='/contact'><div className='section'>Контакти</div></Link>
-                </div>
-                {location.pathname === '/home' && <Search/>}
-                <div className='header__icons'>
-                    <Link to='/admin'><img className='admin' src={AdminIcon} alt='admin'/></Link>
-                    <img onClick={onClickLoginPopUpActivated} ref={loginRef} className='profile' src={ProfileIcon} alt='profile'/>
-                    {popUpIsOpened && (
-                      <div  className="login-popup">
-                        <ul>
-                          <Link to='/login'>
-                            <li>
-                              Увійти
-                            </li>
-                          </Link>
-                          <li>
-                            Закази
-                          </li>
-                          <li className='or'>
-                            або
-                          </li>
-                          <Link to='/registration'>
-                            <li className='option'>
-                              Зареєструватись
-                            </li>
-                          </Link>
-                        </ul>
+          <div className='header'>
+              <div className='container'>
+                  <div className='hot-line'><span>Гаряча лінія:</span> Пн-Пт: 9:00-19:00     (+38) 123-456-7890</div>
+                  <Link to='/home'>
+                      <div className='header__logo'>
+                          <img width='49' src={LogoShoe} alt="LogoShoe"/>
+                          <div>
+                              <h1>ShoeMarket</h1>
+                              <p>обирай комфорт</p>
+                          </div>
                       </div>
-                    )}
-                    <Link to='/cart'><img className='cart' src={CartIcon} alt='cart'/></Link>
-                </div>
-            </div>
-        </div>
+                  </Link>
+                  <div className='header__sections'>
+                      <Link to='/home'><div className='section'>Магазин</div></Link>
+                      <div onClick={() => onClickAboutNavigate()} className='section'>Про нас</div>
+                      <Link to='/contact'><div className='section'>Контакти</div></Link>
+                  </div>
+                  {location.pathname === '/home' && <Search/>}
+                  <div className='header__icons'>
+                      <Link to='/admin'><img className='admin' src={AdminIcon} alt='admin'/></Link>
+                      <img onClick={onClickLoginPopUpActivated} ref={loginRef} className='profile' src={ProfileIcon} alt='profile'/>
+                      {popUpIsOpened && (
+                        <div  className="login-popup">
+                            <ul>
+                                {user.isAuth ?
+                                    <li>
+                                        {user.user}
+                                    </li> :
+                                    <Link to='/login'>
+                                        <li>
+                                            Увійти
+                                        </li>
+                                    </Link>
+                                }
+                                <li>
+                                    Закази
+                                </li>
+                                <li className='or'>
+                                    або
+                                </li>
+                                {user.isAuth ?
+                                  <li className='option__red' onClick={logOut}>
+                                      Вийти
+                                  </li> :
+                                    <Link to='/registration'>
+                                    <li className='option'>
+                                        Зареєструватись
+                                    </li>
+                                </Link>}
+                            </ul>
+                        </div>
+                      )}
+                      <Link to='/cart'><img className='cart' src={CartIcon} alt='cart'/></Link>
+                  </div>
+              </div>
+          </div>
           <div className='header2'>
               <div className='container'>
                   <div className='hot-line'><span>Гаряча лінія:</span> Пн-Пт: 9:00-19:00     (+38) 123-456-7890</div>
@@ -125,6 +145,6 @@ const NavBar = ({ aboutRef }) => {
           </div>
       </>
     )
-}
+})
 
 export default NavBar

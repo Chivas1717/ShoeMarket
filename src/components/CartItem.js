@@ -1,52 +1,44 @@
 import imageTest from '../assets/photo_2023-02-14_18-21-52.jpg'
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
 
-const CartItem = () => {
-  const [count, setCount] = useState(1)
-  const onClickMinus = () => {
-    setCount(count - 1)
-  }
+const CartItem = observer(({item}) => {
+  const {cart} = useContext(Context)
 
-  const onClickPlus = () => {
-    setCount(count + 1)
-  }
-
-  const onClickRemove = () => {
-    setCount(0)
-  }
 
   return (
     <div className='cart__item__wrapper'>
-      <h3 className='first'>Yeezy Boost</h3>
+      <h3 className='first'>{item.name}</h3>
       <div className="cart__item">
         <div className="cart__item-img">
-          <img src={imageTest} alt="Item" />
+          <img src={'http://localhost:7000/' + item.img} alt="Item" />
         </div>
         <div className='cart__item-details'>
           <div className="cart__item-info">
-            <h3 className='second'>Yeezy Boost</h3>
+            <h3 className='second'>{item.name}</h3>
             <p>
-              Розмір: 38
+              Розмір: {item.selectedSize}
             </p>
           </div>
           <div className="cart__item-count">
             <div
               className="circle-btn minus"
-              onClick={onClickMinus}>
+              onClick={() => cart.minusItem(item)}>
               -
             </div>
-            <b>{count}</b>
+            <b>{item.count}</b>
             <div
               className="circle-btn plus"
-              onClick={onClickPlus}>
+              onClick={() => cart.addItem(item)}>
               +
             </div>
           </div>
           <div className="cart__item-price">
-            <b>{14000 * count}</b>
+            <b>{item.price * item.count}₴</b>
           </div>
           <div className="cart__item-remove">
-            <div className="button button--outline button--circle" onClick={onClickRemove}>
+            <div className="button button--outline button--circle" onClick={() => cart.removeItem(item)}>
               <svg
                 width="10"
                 height="10"
@@ -68,6 +60,6 @@ const CartItem = () => {
       </div>
     </div>
   )
-}
+})
 
 export default CartItem

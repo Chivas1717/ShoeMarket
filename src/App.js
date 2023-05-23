@@ -1,7 +1,7 @@
 import './scss/app.scss';
 
 import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
-import {useEffect, useRef} from "react";
+import {useContext, useEffect, useRef} from "react";
 
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
@@ -13,8 +13,13 @@ import Item from "./pages/Item";
 import CheckOut from "./pages/CheckOut";
 import Auth from "./pages/Auth";
 import Contact from "./pages/Contact";
+import {check} from "./http/userApi";
+import {observer} from "mobx-react-lite";
+import {Context} from "./index";
+import Success from "./pages/Success";
 
-function App() {
+const App = observer(() => {
+  const {user} = useContext(Context)
   const navigate = useNavigate()
   useEffect(() => {
     if (location.pathname === '/') {
@@ -27,6 +32,18 @@ function App() {
 
   const aboutRef = useRef(null)
   const paymentRef = useRef(null)
+
+  useEffect(() => {
+    check().then(data => {
+      console.log(data)
+      user.setUser(data.email)
+      user.setIsAuth(true)
+    }).catch((err) => {
+      console.log('error auth')
+      console.log(err)
+
+    })
+  }, [])
 
 
 
@@ -44,12 +61,13 @@ function App() {
           <Route path='/registration' element={<Auth />}/>
           <Route path='/home/item/:id' element={<Item />}/>
           <Route path='/contact' element={<Contact />}/>
+          <Route path='/success' element={<Success />}/>
           <Route path='*' element={<Home aboutRef={aboutRef}/>}/>
         </Routes>
       </div>
       {location.pathname !== 'cart' && location.pathname !== 'contact' && <div className='content__footer'><Footer paymentRef={paymentRef}/></div>}
     </div>
   );
-}
+})
 
 export default App;
